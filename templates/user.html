@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div id="page-wrapper" >
+    <div id="page-inner">
+          <div class="row">
+              <div class="col-md-12">
+                  <h2>User Data</h2>
+              </div>
+          </div>
+          <div class="footer">
+
+          </div>
+          <div class="text-align-left">
+              {% if perms.auth.add_user %}
+              <a href="{% url 'adduser' %}"> <button class="bt btn-success">ADD</button></a>
+              {% endif %}
+          </div>
+          
+          <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.email}}</td>
+                    <td>
+                        {% if perms.auth.change_user %}
+                    <a href="{% url 'edituser' user.id %}"> <button class="bt btn-success">Edit</button></a>
+                    {% endif %}
+                    {% if perms.auth.delete_user %}
+                    <a href="{% url 'delete' user.id 'user' %}"> <button class="bt btn-danger">Delete</button></a>
+                    {% endif %}
+                    {% if perms.app.add_primeuser %}
+                    <a href="{% url 'addprimeuser' user.id %}"><button class="bt btn-primary">Add to PrimeUser</button></a>
+                    {% endif %}
+                    </td>
+                  
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+         
+
+{% endblock %}

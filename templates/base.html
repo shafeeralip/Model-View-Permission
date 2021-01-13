@@ -46,19 +46,36 @@
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
                  
-
-
                     <li class="active-link">
                         <a href="{% url 'home' %}" ><i class="fa fa-desktop "></i>HOME </a>
                     </li>
-                   
-                        {% if perms.app.primeuser %}
+                    {% if request.user.is_staff %}
+                    {% if perms.auth.view_user %}
+                    <li>
+                        <a href="{% url 'users' %}"><i class="fa fa-table "></i>USERS</a>
+                    </li>
+                    {% endif %}
+                    {% if perms.app.view_primeuser %}
+                    <li>
+                        <a href="{% url 'prime' %}"><i class="fa fa-table "></i>PRIME USERS  </a>
+                    </li>
+                    {% endif %}
+                    {% if request.user.is_superuser %}
+                    <li>
+                        <a href="{% url 'staff' %}"><i class="fa fa-edit "></i>STAFF</a>
+                    </li> 
+                    {% endif %}
+                    {% else %}
+
+                    {% if perms.app.view_primeuser %}
                     <li>
                         <a href="{% url 'profile' %}"><i class="fa fa-table "></i>PROFILE  </a>
                     </li>
                     <li>
                         <a href="{% url 'history' %}"><i class="fa fa-edit "></i>HISTORY  </a>
                     </li>
+                    {% endif %}
+
                     {% endif %}
                 </ul>
                 </div>
@@ -69,11 +86,7 @@
         {% block content %}
        
         {% endblock %}
-    <div class="footer">
-      
     
-            
-        </div>
           
 
      <!-- /. WRAPPER  -->

@@ -10,6 +10,6 @@ from django.contrib.auth.models import User
 class Primeuser(models.Model):
     User=models.OneToOneField(User,on_delete=models.CASCADE)
     class Meta:
-        permissions=[('prime_user','primeuser')]
+        permissions=[('prime_member','prime_member')]
 
     
