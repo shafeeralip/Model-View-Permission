@@ -1,0 +1,323 @@
+ <!DOCTYPE html>
+ <html>
+
+ <head>
+   <title>testweb-1</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+
+   <link href="testride-1.css" rel='stylesheet'>
+
+   </style>
+ </head>
+
+ <body>
+ 
+   
+   <div class="example">
+     <div id="back-img"><br>
+
+       <div id="container" style="display:block">
+         <div id="texts"> Login </div>
+         <hr style="width: 300px;"><br>
+         <form id="signinform" action="{% url 'login' %}" method="post">
+             {% csrf_token %}
+           <div id="email-box">
+             <label id="email">username</label><br>
+             <input id="username-box" placeholder="Enter username" name="username" type="text" required>
+           </div><br>
+           <div id="pswd-box">
+             <label id="psw">Password</label><br>
+             <input id="password-box" placeholder="Enter password" name="password" type="password" required>
+           </div><br><br>
+           <button id="loginbtn" type="submit">Log In</button>
+         </form>
+         {% for message in messages %}
+         <p>{{message}}</p>
+         {%endfor%}
+
+            <br>
+            <div>
+                <a href='{% url "register" %}'>Register</a>
+            </div>
+        
+   </div>
+   </div>
+   
+ </body>
+<style>
+       
+   
+   
+   body{
+       margin: 0px;
+          
+    }
+
+     
+      
+      
+      
+       #header{
+           color: ;
+           text-align: center;
+           font-size: 40px;
+        
+            }
+    
+        #back-img{
+         background-color:#D3D3D3;
+         min-height:800px;
+         min-width:100%;
+         background-size: cover;
+         background-repeat: no-repeat;
+         position: absolute;
+         
+         
+               }   
+     
+        #container {
+          margin: auto; 
+          border: 1px solid rgba(var(--b6a,219,219,219),1);
+          padding:  15px;
+          padding-bottom: 70px;
+          max-width: 375px;
+          box-sizing: border-box;
+          background-color: #f2f2f2;
+             
+        }
+        
+        #loginbtn{
+             display: inline-block;
+             width: 95%;
+             padding: 10px 15px;
+             cursor: pointer;
+             background-color:  #1E90FF;
+             border: none;
+             color: floralwhite;
+             opacity: 0.8;
+        }
+        #loginbtn:focus{
+            outline: none;
+        }
+        #loginbtn:hover{
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+            opacity: 1;
+        }
+        #loginbtn:active {
+             box-shadow: 0 5px #666;
+             transform: translateY(4px);
+        }
+        
+        #username-box{
+             border: 3px solid #ccc;
+            width: 85%;
+            padding: 12px;
+            background-color: #F5FFFA;
+            outline: none;
+        }
+        #username-box:focus{
+            box-shadow: 0 0 15px rgba(81, 203, 238, 1);
+            border: 2px solid rgba(81, 203, 238, 1);
+        }
+        #password-box{
+            border: 3px solid #ccc; 
+            width: 85%;
+            padding: 12px;
+            background-color: #F5FFFA ;
+            outline: none;
+        }
+        #password-box:focus{
+            box-shadow: 0 0 15px rgba(81, 203, 238, 1);
+            border: 2px solid rgba(81, 203, 238, 1);
+        }
+        #texts{
+            font-family:sofia;
+            font-size: 50px;
+            text-align: center;
+        }
+        #dir-signup{
+            text-align: center;
+            margin: auto;
+            border: 1px solid rgba(var(--b6a,219,219,219),1);
+            max-width: 375px;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 200px;
+            background-color:#f2f2f2;
+            font-size: 20px; 
+        }
+        #passwordreset{
+            text-align: center;
+            background: none!important;
+        border: none;
+        padding: 0!important;
+        font-family: arial, sans-serif;
+        color: #0051fa;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 15px;
+        opacity: 1; 
+        margin-top: 20px;
+        margin-left: 105px;
+
+        }
+      #passwordreset:focus{
+          outline: none;
+          opacity: 0.6;
+
+      }
+        
+
+
+        #sup-container {
+          margin: auto; 
+         border: 1px solid rgba(var(--b6a,219,219,219),1);
+         padding:  15px ;  
+          padding-bottom: 70px;
+         max-width: 400px;
+          box-sizing: border-box;
+          background-color: #f2f2f2;  
+       }
+
+
+        #signupbtn{
+                width: 95%;
+                padding: 10px 15px;
+                cursor: pointer;
+                background-color:  #1E90FF;
+                border: none;
+                color: floralwhite;
+                opacity: 0.8;
+                 }
+        #signupbtn:focus{
+            outline: none;
+        }
+        #signupbtn:hover{
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+            opacity: 1;
+        }
+        #signupbtn:active {
+             box-shadow: 0 5px #666;
+             transform: translateY(4px);
+        }
+        
+
+        #name-box{
+             border: 3px solid #ccc;
+             width: 85%;
+             padding: 12px;
+             background-color: #F5FFFA;
+             outline: none;
+                  }
+        #name-box:focus{
+            box-shadow: 0 0 15px rgba(81, 203, 238, 1);
+            border: 2px solid rgba(81, 203, 238, 1);
+        }
+        #psw-box{
+        border: 3px solid #ccc; 
+        width: 85%;
+        padding: 12px;
+        background-color: #F5FFFA ;
+        outline: none;
+        
+        }
+        #psw-box:focus{
+            box-shadow: 0 0 15px rgba(81, 203, 238, 1);
+            border: 2px solid rgba(81, 203, 238, 1);
+        }
+        #mail-box{
+        border: 3px solid #ccc; 
+        width: 85%;
+        padding: 12px;
+        background-color: #F5FFFA ;
+        outline: none;
+        
+        }
+        #mail-box:focus{
+            box-shadow: 0 0 15px rgba(81, 203, 238, 1);
+            border: 2px solid rgba(81, 203, 238, 1);
+        }
+
+        #confirm-psw-box{
+        border: 3px solid #ccc; 
+        width: 85%;
+        padding: 12px;
+        background-color: #F5FFFA ;
+        outline: none;
+        
+        }
+        #confirm-psw-box:focus{
+            box-shadow: 0 0 15px rgba(81, 203, 238, 1);
+            box-shadow: 0 0 15px rgba(81, 203, 238, 1);
+            border: 2px solid rgba(81, 203, 238, 1);border: 2px solid rgba(81, 203, 238, 1);
+        }
+        #text{
+        font-family:sofia;
+        font-size: 50px;
+        text-align: center;
+        
+        }
+        #dir-login{
+            
+        text-align: center;
+        margin: auto;
+        border: 1px solid rgba(var(--b6a,219,219,219),1);
+        max-width: 400px;
+        padding: 10px;
+        box-sizing: border-box;
+        margin-bottom: 200px;
+        background-color: #f2f2f2;
+        font-size: 20px;
+        }
+        #firstbtn{
+            
+        background: none!important;
+        border: none;
+        padding: 0!important;
+        font-family: arial, sans-serif;
+        color: #0000EE;
+        text-decoration: underline;
+        cursor: pointer;
+        font-size: 20px;
+        opacity: 1; 
+
+        }
+        #firstbtn:focus{
+            outline: none;
+            opacity: 0.8;
+        }
+        #firstbtn:active{
+            outline: none;
+            opacity: 0.8;
+            color: red
+        }
+        #secondbtn{
+        background: none!important;
+        border: none;
+        padding: 0!important;
+        font-family: arial, sans-serif;
+        color: #0000EE;
+        text-decoration: underline;
+        cursor: pointer;
+        font-size: 20px;
+        opacity: 1;
+        }
+        #secondbtn:focus{
+            outline: none;
+            opacity: 0.8;
+        }
+        #secondbtn:active{
+            outline: none;
+            opacity: 0.8;
+            color: red
+        }
+            
+       
+
+     
+</style>
+ </html>
+
+
+
